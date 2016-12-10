@@ -173,6 +173,45 @@ i, cite, em, var, address, dfn {
   font-size: 50px;
 }
 
-.im-checkout-btn.btn--light{
-  background: black!important!;
+@media only screen and (max-width: 420px;)
+{
+  #bb{
+    background-image: url(assets/images/basketball.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #fb{
+    background-image: url(assets/images/football.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #ath{
+    background-image: url(assets/images/athletics.jpg);background-size: cover; background-repeat: no-repeat;
+  }
+  #ch{
+    background-image: url(assets/images/chess.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #vb{
+    background-image: url(assets/images/volleyball.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #sq{
+    background-image: url(assets/images/squash.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #bd{
+    background-image: url(assets/images/badminton.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #ten{
+    background-image: url(assets/images/tennis.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #fut{
+    background-image: url(assets/images/football.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #bc{
+    background-image: url(assets/images/cricket.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #tt{
+    background-image: url(assets/images/TT.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #cric{
+    background-image: url(assets/images/cricket.jpg); background-size: cover; background-repeat: no-repeat;
+  }
+  #car{
+    background-image: url(assets/images/carrom.jpg); background-size: cover; background-repeat: no-repeat;
+  }
 }

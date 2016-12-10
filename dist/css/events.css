@@ -129,7 +129,7 @@ body {
   color: black;
   font-weight: 100;
   z-index: 10000;
-  height: 135px;
+  height: 105px;
   width: 100%;
   cursor: pointer;
   background: #d1d2d4;
@@ -137,8 +137,8 @@ body {
   left: 0px; }
   .carousel-indicators div {
     display: inline-block;
-    height: 5vh;
-    width: 16%;
+    height: 3vh;
+    width: 20%;
     float: left; }
   .carousel-indicators .active {
     background: #b7b8bb; }
@@ -146,8 +146,33 @@ body {
 .carousel-control {
   top: 250px;
   bottom: 200px;  
-  color: black; }
+  color: black; 
+  }
   .carousel-control:hover {
     color: #eb8122; }
 
 /*# sourceMappingURL=events.css.map */
+
+
+.caret{
+  color:black;
+}
+
+
+i, cite, em, var, address, dfn {
+    font-style: italic;
+    color : black;
+}
+
+.nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover{
+  color : black!important;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next
+{
+  font-size: 50px;
+}
+
+.im-checkout-btn.btn--light{
+  background: black!important!;
+}

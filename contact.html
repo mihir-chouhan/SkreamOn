@@ -1,521 +1,265 @@
-S<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" /><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
   <meta name="format-detection" content="telephone=no">
-  <title>Skream</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-material-design.min.css" />
-  <link rel="stylesheet" href="dist/css/ripples.min.css" />
-  <link rel="stylesheet" href="dist/css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="dist/css/simple-sidebar.css">
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Skream</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/bootstrap-material-design.min.css" />
+    <link rel="stylesheet" href="dist/css/ripples.min.css" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="dist/css/simple-sidebar.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <style>
+        @media only screen and (max-width: 720px)
+        {
+            #stuco{
+                width: 300px;
+                height: auto;
+                padding-left: 15px;
+            }
+        }
 
-<!-- Latest compiled and minified JavaScript -->
+        @media only screen and (min-width: 720px)
+        {
+            #stuco{
+                padding-left: 70px;
+            }
+        }
 
+      #map-container { 
+        margin: 30px;
+        height: 550px;
+        width: auto;
+        position: relative;
+        overflow: hidden;
+    }
 
+    #info{
+        width:     530px;
+        height:     auto;   
+    }
 
-
-
-<style>
-body{
-  padding-top: 1%;
-  padding-left: 1%;
-  background: #eee;
+    #reg-ip{
+        margin-bottom: 0px;
+        margin-top: 10px;   
+        color: black;
+        font-size:  25px;
+    }
+    .md-form{
+  margin-left: 30px;
+  margin-right:30px;
 
 }
-@font-face{
-    font-family: "mosk";
-    src:url('assets/font/MB400.ttf');
+
+.logo{
+    width: 150px;
+    height: auto;
 }
-.nav>li>a{
-    font-family: "mosk";
-    font-size: 20px;
+
+.button1{
+    background-color: white;
+    color: black;
+    margin-bottom: 5px;
+}
+.button1:hover{
+    background-color: orange !important;
+    color: white;
+}
+#submit{
     color: black;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
-background-color:#EC8123;
-color:white;
+.map-container{
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
 }
 
-.nav-pills>li>a {
-    border-radius: 0px;
+.map-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }
-.nav-pills>li+li{
-  margin-left: 2%;
-}
-@media(max-width: 360px){
- #vikas{
-    width: 90%;
-}
-}
-.nav navbar-nav navbar-right
-{
-  float: left;
-}
-.h4, h4{
-  font-family: "mosk";
-}
-.h3, h3{
-  font-family: "mosk";
-}
-.container .side-bar{
-  font-family: "mosk";
-}
-</style>
+
+    </style>
+    
 </head>
 
 <body>
 
-  <header>
-  <!-- <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <img src="./assets/images/sponsors/navbar_logo.png" alt="" class="img-re">
-        </a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li> 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </nav> -->
-    <nav class="navbar navbar-light bg-faded usesvh">
-      
-    
-        <div class="container-fluid navbar-container usesvh">
-          
-            <div class="navbar-header">
-            <div class="center"  id ="fuck" style="display:inline-block;float:left;">
-              <a  onclick="" id="fuck">
-              <i class="fa fa-bars fa-2x" id="bars"></i>
-            </a>
-            </div>
-                <a class="navbar-brand usesvh" href="#">
-                  <img src="./assets/images/navbar_logo.png" height="50" id="navbar-logo" alt="" class="">
-                </a>
-            </div>
-            <div class="nav-current">
-              <p>SPONSOR</p>
-            </div>
+    <header>
+    <!-- <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img src="./assets/images/navbar_logo.png" alt="" class="img-re">
+          </a>
         </div>
-    </nav>
-  
-  </header>
-  <hr />
-  <hr />
-  <div class="container usesvh" id="container">
-      
-        <!-- Sidebar -->
-      <div id="side-nav" class="side-bar">
-          <ul class="sidebar-nav">
-              <!-- <li class="sidebar-brand">
-                  <a href="#">
-                      Start Bootstrap
-                  </a>
-              </li> -->
-              <li>
-                  <a href="./index.html"><i class="fa fa-home fa-1x"></i> Home</a>
-              </li>
-              <li>
-                  <a href="./events.html"><i class="fa fa-soccer-ball-o fa-1x"></i> Events</a>
-              </li>
-              <li>
-                  <a href="./Rules.html"><i class="fa fa-map-o fa-1x"></i> Rules</a>
-              </li>
-              <li>
-                  <a href="./Accomodation.html"><i class="fa fa-briefcase fa-1x"></i> Accommodation</a>
-              </li>
-              <li>
-                  <a href="./registration.html"><i class="fa fa-pencil-square fa-1x"></i> Registration</a>
-              </li>
-              <li>
-                  <a href="./parvaah.html"><i class="fa fa-product-hunt fa-1x"></i> Parvaah</a>
-              </li>
-               <li>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li> 
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav> -->
+        <nav class="navbar navbar-light bg-faded ">
+            
+        
+                <div class="container-fluid navbar-container">
+                    
+                    <div class="navbar-header">
+                        <div class="center"  id ="fuck" style="display:inline-block;float:left;">
+                            <a  onclick="" id="fuck">
+                            <i class="fa fa-bars fa-2x" id="bars"></i>
+                        </a>
+                        </div>
+                          <a class="navbar-brand" href="#">
+                            <img src="./assets/images/navbar_logo.png" height="50" id="navbar-logo" alt="" class="">
+                          </a>
+                    </div>
+                    <div class="nav-current" style="">
+                        <p>CONTACT</p>
+                    </div>
+                </div>
+        </nav>
+    
+    </header>
+    <hr />
+    <hr />
+    <div class="container" id="container">
+            
+        <div id="side-nav" class="side-bar">
+            <ul class="sidebar-nav">
+                <!-- <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li> -->
+                <li>
+                    <a href="./index.html"><i class="fa fa-home fa-1x"></i> Home</a>
+                </li>
+                <li>
+                    <a href="./events.html"><i class="fa fa-soccer-ball-o fa-1x"></i> Events</a>
+                </li>
+                <li>
+                    <a href="./Rules.html"><i class="fa fa-map-o fa-1x"></i> Rules</a>
+                </li>
+                <li>
+                    <a href="./Accomodation.html"><i class="fa fa-briefcase fa-1x"></i> Accommodation</a>
+                </li>
+                <li>
+                    <a href="./registration.html"><i class="fa fa-pencil-square fa-1x"></i> Registration</a>
+                </li>
+                <li>
+                    <a href="./parvaah.html"><i class="fa fa-product-hunt fa-1x"></i> Parvaah</a>
+                </li>
+                <li>
                     <a href="./sponsor.html"><i class="fa fa-handshake-o fa-1x"></i> Sponsors</a>
                 </li>
-              <li>
-                 <a href="./contact.html"><i class="fa fa-id-card-o fa-1x"></i> Contact</a>
-              </li>
-              
-          </ul>
-      </div>
+                <li>
+                    <a href="./contact.html"><i class="fa fa-id-card-o fa-1x"></i> Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
 
-          <div class="main" id="main">
+            <div class="main" id="main">
+                <div class="container-fluid" id="">
 
-                              <!--Yaha se mera chalu hora hai--><div class="container" style="margin-left: 0px; margin-right: 0px;margin-top: 1%;margin-bottom: 1%;">
-                              <div class="col-md-1"></div>
-                              <div class="col-md-10">
-                                                                      <ul class="nav nav-pills ">
-                                          <li class="active"><a href="#2017" data-toggle="tab">2017</a></li>
-                                          <li><a href="#2016" data-toggle="tab">2016</a></li>
-                                          
-                                                                      </ul>
-                                                                      <div class="tab-content">
-                                                                           <div class="tab-pane active fade in" id="2017">
-                                                                                          <div class="container">
-                                                                                  
-                                                                                          <br>
-                                                                                          <div class="row">
-                                                                                              <figure class="team-member col-lg-3 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>E-Paper Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.freepressjournal.in/" target="_blank"><img src="assets/images/sponsors/freepress.jpg" target="_blank" alt="Sponsor" class="img-responsive" width="100%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-3 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Voyage Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><img src="assets/images/sponsors/vagabond.jpg" alt="Sponsor" class="img-responsive" width="100%"></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-3 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Youth Magzaine Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.youthincmag.com/" target="_blank"><img src="assets/images/sponsors/youthi.jpg" alt="Sponsor" class="img-responsive" width="100%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                            
-                                                                                            
-                                                                                              <figure class="team-member col-lg-3 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Support Media Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.stupidsid.com/" target="_blank"><img src="assets/images/sponsors/stupidsid.jpg" alt="Sponsor" class="img-responsive" width="100%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              </div><br>
-                                                                                            <div class="row">
-                                                                                                <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                    <h4>Style Partner</h4>
-                                                                                                    <center><div class="member-thumb">
-                                                                                                <center><img src="assets/images/sponsors/ss.jpg" alt="Sponsor" class="img-responsive" width="100%"></center>
-                                                                                              </div></center>
-                                                                                               </figure><!-- 
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Online Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><img src="assets/images/sponsors/ohcampus.jpg" alt="Sponsor" class="img-responsive" width="100%"></center>
-                                                                                              </div></center>
-                                                                                            </figure> -->
-                                                                                           
-                                                                                             <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Outdoor Media Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center> <a href="http://www.telex.co.in/" target="_blank"><img src="assets/images/sponsors/telex.jpg" alt="Sponsor" class="img-responsive" width="100%"></a></center></center>
-                                                                                              </div></center>
-                                                                                            </figure>
-                                                                                          </div><br>
-                                                                                                <h3 style="text-align: center;">Online Media Partner</h3>
-                                                                                             <div class="row">
-                                                                                                  <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                    <h4>Online Partner</h4>
-                                                                                                    <center><div class="member-thumb">
-                                                                                                      <center><a href="http://ohcampus.com/" target="_blank"><img src="assets/images/sponsors/ohcampus.jpg" alt="Sponsor" class="img-responsive" width="100%"></a></center>
-                                                                                                    </div></center>
-                                                                                                  </figure>
-                                                                                                  <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                    <h4>Youth Magzaine Partner</h4>
-                                                                                                    <center><div class="member-thumb">
-                                                                                                      <center><a href="http://testfunda.com/" target="_blank"><img src="assets/images/sponsors/testf.jpg" alt="Sponsor" class="img-responsive" width="100%"></a></center>
-                                                                                                    </div></center>
-                                                                                                  </figure>
-                                                                                                   <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                    <h4>Outdoor Media Partner</h4>
-                                                                                                    <center><div class="member-thumb">
-                                                                                                      <center><a href="https://beingstudent.com/" target="_blank"><img src="assets/images/sponsors/bs.png" alt="Sponsor" class="img-responsive" width="100%"></a></center>
-                                                                                                    </div></center>
-                                                                                                  </figure>
-                                                                                                  <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                    <h4>Outdoor Media Partner</h4>
-                                                                                                    <center><div class="member-thumb">
-                                                                                                      <center><a href="" ><img src="assets/images/sponsors/btech.jpg" alt="Sponsor" class="img-responsive" width="100%"></a></center>
-                                                                                                    </div></center>
-                                                                                                  </figure>
-                                                                                          </div><br>
-                                                                                          <h3 style="text-align: center;">Technology Partner</h3>
-                                                                                          <!-- <h3>Online Media Partner</h3>-->
-                                                                                              <div class="row">
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Online Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><img src="assets/images/sponsors/uactiv-logo.png" alt="Sponsor" class="img-responsive" width="100%"></center>
-                                                                                              </div></center>
-                                                                                            </figure>
-                                                                                           <!-- <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Youth Magzaine Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><img src="assets/images/sponsors/testf.jpg" alt="Sponsor" class="img-responsive" width="100%"></center>
-                                                                                              </div></center>
-                                                                                            </figure>
-                                                                                             <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Outdoor Media Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><img src="assets/images/sponsors/bs.png" alt="Sponsor" class="img-responsive" width="100%"></center>
-                                                                                              </div></center>
-                                                                                            </figure>
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Outdoor Media Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><img src="assets/images/sponsors/btech.jpg" alt="Sponsor" class="img-responsive" width="100%"></center>
-                                                                                              </div></center>
-                                                                                            </figure>
-                                                                                          </div><br> -->
-                                                                                          </div>
-                                                                                      
-                                                                                      <div class="tab-pane fade" id="2016">
-                                                                                          <div class="container">
-                                                                                  
-                                                                                          <br>
-                                                                                          <div class="row">
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Co-Sponsored by</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><a href="http://www.thesportsgurukul.com/" target="_blank"><img src="assets/images/sponsors/tsg.png" alt="Sponsor" class="img-responsive" width="40%"></a></center>
-                                                                                              </div></center>
-                                                                                            </figure>
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Media Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><a href="http://zeenews.india.com/live-tv" target="_blank"><img src="assets/images/sponsors/zee.png" alt="Sponsor" class="img-responsive" width="35%"></a></center>
-                                                                                            </figure>
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Associate Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><a href="https://thecoachcrew.com/" target="_blank"><img src="assets/images/sponsors/tcc.jpg" alt="Sponsor" class="img-responsive" width="50%"></a></center>
-                                                                                              </div></center>
-                                                                                            </figure>
-                                                                                          </div><br>
-                                                                                          <div class="row">
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Fitness Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="https://powerhousegym.com/" target="_blank"><img src="assets/images/sponsors/POwerhouse Gym.png" alt="Sponsor" class="img-responsive" width="40%" src=></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Online Media Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.faadooengineers.com" target="_blank"><img src="assets/images/sponsors/Fadoo Engineers.png" alt="Sponsor" class="img-responsive" width="70%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4  col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Online Media Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.knowafest.com" target="_blank"><img src="assets/images/sponsors/knowafest.jpg" alt="Sponsor" class="img-responsive" width="70%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                          </div><br>
-                                                                                          <div class="row">
-                                                                                              <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Online Publicity Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.allevents.in" target="_blank"><img src="assets/images/sponsors/All Events.png" alt="Sponsor" class="img-responsive" width="50%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Sporting Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://sportsgully.com/" target="_blank"><img src="assets/images/sponsors/sports gully.png" alt="Sponsor" class="img-responsive" width="40%" target="_blank"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Magazine Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.youthincmag.com/" target="_blank"><img src="assets/images/sponsors/Youth I.png" alt="Sponsor" class="img-responsive" width="50%" target="_blank"></center>
-                                                                                                </div></a></center>
-                                                                                              </figure>
-                                                                                          </div><br>
-                                                                                          <div class="row">
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Media Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.freepressjournal.in/" target="_blank"><img src="assets/images/sponsors/free-press.png" alt="Sponsor" class="img-responsive" width="70%" target="_blank"></center>
-                                                                                                </div></a></center>
-                                                                                              </figure>
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Media Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://mumbaimessenger.com/" target="_blank"><img src="assets/images/sponsors/mumbai-messenger.png" alt="Sponsor" class="img-responsive" width="50%" target="_blank"></center>
-                                                                                                </div></a></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Event Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.indiarushsoccer.com/" target="_blank"><img src="assets/images/sponsors/rush.png" alt="Sponsor" class="img-responsive" width="50%" target="_blank"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              
-                                                                                          </div><br>
-                                                                                          <div class="row">
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Game Shop Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://emartgames.com/" target="_blank"><img src="assets/images/sponsors/emart.png" alt="Sponsor" class="img-responsive" width="50%" target="_blank"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                              <h4>Goods Partner</h4>
-                                                                                              <center><div class="member-thumb">
-                                                                                                <center><a href="http://www.tennex.in/" target="_blank"><img src="assets/images/sponsors/tennex.png" alt="Sponsor" class="img-responsive" width="70%" target="_blank"></center>
-                                                                                              </div></a></center>
-                                                                                            </figure>
-                                                                                            <figure class="team-member col-lg-4 col-xs-12 col-md-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Student Oppurtunity Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.twenty19.com" target="_blank"><img src="assets/images/sponsors/Twenty19.png" alt="Sponsor" class="img-responsive" width="70%" target="_blank"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                          </div><br>
-                                                                                          <div class="row">
-                                                                                            <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Drinking Water Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><img src="assets/images/sponsors/Cista.png" alt="Sponsor" class="img-responsive" width="50%" target="_blank"></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                            <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Print Media Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="https://maharashtratimes.indiatimes.com/" target="_blank"><img src="assets/images/sponsors/maharashtra.jpg" alt="Sponsor" class="img-responsive" width="70%" target="_blank"></center>
-                                                                                                </div></a></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>PS Arena Partner</h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="https://www.playstation.com/en-in/" target="_blank"><img src="assets/images/sponsors/ps.jpg" alt="Sponsor" class="img-responsive" width="60%" target="_blank"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                          </div><br>
-                                                                                          <div class="row">
-                                                                                            <figure class="team-member col-lg-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4>Local Magazine Partner</h4>
-                                                                                                <center><a href="http://livinglocal.com/Account/Register" target="_blank"><div class="member-thumb">
-                                                                                                  <center><img src="assets/images/sponsors/living-local.jpg" alt="Sponsor" class="img-responsive" width="25%" target="_blank"></center>
-                                                                                                </div></a></center>
-                                                                                              </figure>
-                                                                                          </div>
-                                                                                          <div class="row">
-                                                                                            <center><h3>Other Partners</h3></center><br>
-                                                                                            <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms" style="padding-top:2%">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://thegateacademy.com/" target="_blank"><img src="assets/images/sponsors/tga_logo.png" alt="Sponsor" class="img-responsive" width="50%" ></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                            <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><img src="assets/images/sponsors/5ive logo.jpg" alt="Sponsor" class="img-responsive" width="50%"></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://mappingjourneys.com/" target="_blank"><img src="assets/images/sponsors/Logo.png" alt="Sponsor" class="img-responsive" width="50%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                            </div>
-                                                                                            <div class="row">
-                                                                                            <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="https://www.metrogroup.de/en" target="_blank"><img src="assets/images/sponsors/metro-builders.jpg" alt="Sponsor" class="img-responsive" width="80%"></a></center>
-                                                                                                </div></a></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="https://naturellindia.com/" target="_blank"><img src="assets/images/sponsors/rite-bite.jpg" alt="Sponsor" class="img-responsive" width="50%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><img src="assets/images/sponsors/paintball.jpg" alt="Sponsor" class="img-responsive" width="50%"></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                          </div>
-                                                                                            <div class="row">
-                                                                                              <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms" style="padding-top:2%">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.redbull.com/in-en" target="_blank"><img src="assets/images/sponsors/redbull.png" alt="Sponsor"  class="img-responsive" width="50%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                              <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4></h4><br>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.decathlon.in/" target="_blank"><img src="assets/images/sponsors/decathlon.png" alt="Sponsor" class="img-responsive" width="50%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure><br>
-                                                                                              <figure class="team-member col-lg-4 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://relispray.com/" target="_blank"><img src="assets/images/sponsors/relispray.png" alt="Sponsor" class="img-responsive" width="50%"></a></center>
-                                                                                                </div></center>
-                                                                                              </figure>
-                                                                                          </div><br><br>
-                                                                                          <div class="row">
-                                                                                            <figure class="team-member col-lg-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                                                                                                <h4></h4>
-                                                                                                <center><div class="member-thumb">
-                                                                                                  <center><a href="http://www.vikasconstruction.in/" target="_blank"><img src="assets/images/sponsors/vikas-construction.png" alt="Sponsor" id="vikas" class="img-responsive" width="25%"></center>
-                                                                                                </div></a></center>
-                                                                                              </figure>
-                                                                                          </div><br>
-                                                                                      </div>
-                                                                                      </div>
-                                                
-                                                                      </div><!-- tab content -->
-                                      </div><!--end of md10-->
-                                        <div class="col-md-1"></div>
-                                                                </div><!-- end of container --> 
+                                        <!--CONTACT SECTION BEGINS-->
+
+
+
+<!--Section: Contact v.1-->
+<section class="section mb-4">
+
+    <div class="row">
+<div class="col-md-1"></div>
+        <!--First column-->
+        <div class="col-md-4" style="  margin-top:40px;" > 
+        <p>For any queries contact :<br><br>
+Chirag Shah +919757084146  <br>e-mail id : chirag.ms@somaiya.edu<br><br>
+
+Janam Mehta +919920801422 <br>e-mail id : janam.mehta@somaiya.edu<br><br>
+
+Jugal Shah +919930892774  <br>e-mail id : jugal.vs@somaiya.edu<br><br>
+
+Hitanshu Trivedi +919702677797  <br>e-mail id : hitanshu.t@somaiya.edu<br><br>
+
+Akanksha Rao  +918082136726  <br>e-mail id : akanksha.rao@somaiya.edu
+
+
+        </div>
+        <!--/First column-->
+
+        <!--Second column-->
+        <div class="col-md-7">
+
+            <!--Google map-->
+            <div id="map-container" class="z-depth-1-half map-container">
+                
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.7883514330733!2d72.89750831446781!3d19.07304098708958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c627a20bcaa9%3A0xb2fd3bcfeac0052a!2sK.J.+Somaiya+College+Of+Engineering!5e0!3m2!1sen!2sin!4v1481116400620" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
             </div>
-    </div>
-  </div>
+</div>
+        <div class="container">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">    
+                <img src="assets/images/contact.svg" height="300" id="stuco">
+            </div>
+                 <div class="col-md-2"></div>
+            </div>
+
+</section>
+</div>
+</div>
     
-
-  
-  
-  <hr />
-  
-  <div class="ext-link">
-    <ul>
-      <li><a href="https://youtu.be/fjce4cLviTM" target="_blank">Trailer</a></li>
-      <li><a href="./gallery.html">Gallery</a></li>
-    </ul>
-  </div><!-- 
-  <div class="register center">
-    <i class="fa fa-pencil fa-2x"></i>
-  </div> -->
-  <hr />
-
+    <div class="ext-link">
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=fjce4cLviTM" target="_blank"">Trailer</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+        </ul>
+    </div>
+<!--     <div class="register center">
+        <i class="fa fa-pencil fa-2x"></i>
+    </div>
+ -->    <hr />
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+               Copyright &copy; KJSCE Skream 2017   !
+            </p>
+        </div>
+    </footer>
 
 <script src="dist/js/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
 <script src="dist/js/material.min.js"></script>
 <script src="dist/js/ripples.min.js"></script>
 <script src="dist/js/index.js"></script>
+
+<!--contact--><!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
+     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="" src="./dist/js/map.js"></script>
+<script type="" src="./dist/js/validator.js"></script>
+<script type="" src="./dist/js/register.js"></script>
+
+<!-- <script type="text/javascript" src="map1.js"></script> -->
+<script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="dist/js/phno.js"></script> -->
 <script >
 
 // function ToggleNav(){
@@ -523,11 +267,11 @@ color:white;
 // $('#main').toggleClass("open");
 //  $('.side-bar').toggleClass("open2");
 //  //flag = (flag==1 ? 0 : 1);
-  
+    
 // }
 
 // $('#fuck').on('click',function(){
-//    ToggleNav();  
+//      ToggleNav();    
 // });
 
 
@@ -539,7 +283,7 @@ color:white;
 
 
 
-  
+    
 </script>
 </body>
 </html>
